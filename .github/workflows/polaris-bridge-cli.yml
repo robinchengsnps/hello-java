@@ -36,6 +36,7 @@ jobs:
       run: |
         curl -fLsS -o bridge.zip ${{ vars.BRIDGECLI_LINUX64 }} && unzip -qo -d ${{ runner.temp }} bridge.zip && rm -f bridge.zip
         ${{ runner.temp }}/bridge-cli-bundle-linux64/bridge-cli --stage polaris \
+            polaris.fixpr.enabled=true \
             polaris.reports.sarif.create=true
     - name: Polaris PR Scan
       if: ${{ github.event_name == 'pull_request' }}
