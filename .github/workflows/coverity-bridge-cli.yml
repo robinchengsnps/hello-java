@@ -10,6 +10,10 @@ jobs:
   coverity:
     #runs-on: ubuntu-latest
     runs-on: self-hosted
+    permissions:
+      contents: read
+      pull-requests: write
+      security-events: write
     env:
       BRIDGE_COVERITY_CONNECT_URL: ${{ vars.COVERITY_URL }}
       BRIDGE_COVERITY_CONNECT_USER_NAME: ${{ secrets.COV_USER }}
